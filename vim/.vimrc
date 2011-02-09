@@ -1,21 +1,17 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
 "
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.vimrc
 "	      for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
-
-" Use Vim settings, rather than Vi settings (much better!).
+"
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
 set backup		" keep a backup file
-set backupdir=$HOME/.vim/backup//
-
+if isdirectory($HOME . "/.vim/backup")
+	set backupdir=$HOME/.vim/backup//
+endif
 set history=50		" keep 50 lines of command line history
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
@@ -31,6 +27,9 @@ if has("autocmd")
   filetype plugin indent on
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+  autocmd! bufwritepost .vimrc source % " Apply settings on write 
+  autocmd BufEnter * lcd %:p:h
+
   " When editing a file, always jump to the last known cursor position.
   autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -57,15 +56,21 @@ endif " has("autocmd")
 	nnoremap k gk
 	set backspace=indent,eol,start " allow backspacing over everything in insert mode
 	nmap <space> i<space>
-	" Smart way to move btw. windows
+	" Smart way to move between windows
 	map <C-j> <C-W>j
 	map <C-k> <C-W>k
 	map <C-h> <C-W>h
 	map <C-l> <C-W>l
+
+	nnoremap <C-a> ggVG  " Select all
+	" Easier copy/past to global clipboard
+ 	nmap Y "+y
+	nmap P "+p
+	
 " }
 " Plugins {
-	"let g:SuperTabDefaultCompletionType = "context"
-        "let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+	" let g:SuperTabDefaultCompletionType = "context"
+        " let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"
 " }
 
 " UI {
@@ -74,18 +79,18 @@ endif " has("autocmd")
 	if &t_Co > 2 || has("gui_running")
 		syntax on
 		set hlsearch
+		set gfn=Inconsolata\ Medium\ 13
+		colorscheme bslate 
 	endif
 
 	set ruler		" show the cursor position all the time
 	set showcmd		" display incomplete commands
 	set scrolloff=3                 " minimum lines to keep above and below cursor
-	set gfn=Inconsolata\ Medium\ 13
-	colorscheme bslate 
 " }
 " Searching {
 	set ignorecase                  " case insensitive search
 	set smartcase                   " case sensitive when uc present
 	set incsearch			" do incremental searching
+	" clear search highlight
+	nmap <silent> <C-N> :silent noh<CR>
 " }
-
-autocmd! bufwritepost .vimrc source % " Apply settings on write 
