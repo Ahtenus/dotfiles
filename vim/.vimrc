@@ -28,6 +28,7 @@ if has("autocmd")
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
   autocmd! bufwritepost .vimrc source % " Apply settings on write 
+  cmap w!! w !sudo tee % >/dev/null
   autocmd BufEnter * lcd %:p:h
 
   " When editing a file, always jump to the last known cursor position.
@@ -64,8 +65,8 @@ endif " has("autocmd")
 
 	nnoremap <C-a> ggVG  " Select all
 	" Easier copy/past to global clipboard
- 	nmap Y "+y
-	nmap P "+p
+ 	nmap <c-y> "+y
+	nmap <c-p> "+p
 	
 " }
 " Plugins {
@@ -82,7 +83,7 @@ endif " has("autocmd")
 		set gfn=Inconsolata\ Medium\ 13
 		colorscheme bslate 
 	endif
-
+	set showmode
 	set ruler		" show the cursor position all the time
 	set showcmd		" display incomplete commands
 	set scrolloff=3                 " minimum lines to keep above and below cursor
@@ -91,6 +92,7 @@ endif " has("autocmd")
 	set ignorecase                  " case insensitive search
 	set smartcase                   " case sensitive when uc present
 	set incsearch			" do incremental searching
+	set gdefault                    " the /g flag on :s substitutions by default
 	" clear search highlight
 	nmap <silent> <C-N> :silent noh<CR>
 " }
