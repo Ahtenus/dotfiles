@@ -27,9 +27,10 @@ if has("autocmd")
   filetype plugin indent on
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+  autocmd FileType tex setlocal textwidth=78
   autocmd! bufwritepost .vimrc source % " Apply settings on write 
   cmap w!! w !sudo tee % >/dev/null
-  autocmd BufEnter * lcd %:p:h
+  " autocmd BufEnter * lcd %:p:h " Use directory of file as current directory
 
   " When editing a file, always jump to the last known cursor position.
   autocmd BufReadPost *
@@ -62,12 +63,14 @@ endif " has("autocmd")
 	map <C-k> <C-W>k
 	map <C-h> <C-W>h
 	map <C-l> <C-W>l
-
 	nnoremap <C-a> ggVG  " Select all
 	" Easier copy/past to global clipboard
  	nmap <c-y> "+y
 	nmap <c-p> "+p
-	
+
+	let mapleader = ","
+	" save and compile latex document
+	map <leader>p :w \| !pdflatex %	
 " }
 " Plugins {
 	" let g:SuperTabDefaultCompletionType = "context"
