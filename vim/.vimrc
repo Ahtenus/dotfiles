@@ -9,7 +9,7 @@
 set nocompatible
 
 set backup		" keep a backup file
-if isdirectory($HOME . "/.vim/backup")
+if isdirectory($HOME . "/.vim/backup") " but don't bloat unnecessarily
 	set backupdir=$HOME/.vim/backup//
 endif
 set history=50		" keep 50 lines of command line history
@@ -57,20 +57,22 @@ endif " has("autocmd")
 	nnoremap j gj
 	nnoremap k gk
 	set backspace=indent,eol,start " allow backspacing over everything in insert mode
-	nmap <space> i<space>
 	" Smart way to move between windows
 	map <C-j> <C-W>j
 	map <C-k> <C-W>k
 	map <C-h> <C-W>h
 	map <C-l> <C-W>l
-	nnoremap <C-a> ggVG  " Select all
-	" Easier copy/past to global clipboard
- 	nmap <c-y> "+y
-	nmap <c-p> "+p
+	" Select all
+	nnoremap <leader>a ggVG
+	" Copy all
+	nnoremap <leader>y gg"+yG 
+	" Easier copy/paste to global clipboard
+ 	map <c-y> "+y
+	map <c-p> "+p
 
 	let mapleader = ","
 	" save and compile latex document
-	map <leader>p :w \| !pdflatex %	
+	map <leader>p :w \| !pdflatex %
 " }
 " Plugins {
 	" let g:SuperTabDefaultCompletionType = "context"
@@ -89,7 +91,7 @@ endif " has("autocmd")
 	set showmode
 	set ruler		" show the cursor position all the time
 	set showcmd		" display incomplete commands
-	set scrolloff=3                 " minimum lines to keep above and below cursor
+	set scrolloff=3         " minimum lines to keep above and below cursor
 " }
 " Searching {
 	set ignorecase                  " case insensitive search
