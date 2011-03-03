@@ -63,9 +63,9 @@ endif " has("autocmd")
 	map <C-h> <C-W>h
 	map <C-l> <C-W>l
 	" Select all
-	nnoremap <leader>a ggVG
+	map <leader>a ggVG
 	" Copy all
-	nnoremap <leader>y gg"+yG 
+	nmap <leader>y gg"+yG 
 	" Easier copy/paste to global clipboard
  	map <c-y> "+y
 	map <c-p> "+p
@@ -75,8 +75,8 @@ endif " has("autocmd")
 	map <leader>p :w \| !pdflatex %
 " }
 " Plugins {
-	" let g:SuperTabDefaultCompletionType = "context"
-        " let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"
+	 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+         let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"
 " }
 
 " UI {
@@ -87,11 +87,14 @@ endif " has("autocmd")
 		set hlsearch
 		set gfn=Inconsolata\ Medium\ 13
 		colorscheme bslate 
+		" set guioptions-=m  "remove menu bar
+		set guioptions-=T  "remove toolbar
 	endif
 	set showmode
 	set ruler		" show the cursor position all the time
 	set showcmd		" display incomplete commands
 	set scrolloff=3         " minimum lines to keep above and below cursor
+	set wildmenu 		" Fancier commandline tab completion
 " }
 " Searching {
 	set ignorecase                  " case insensitive search
