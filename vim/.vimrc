@@ -26,7 +26,7 @@ if has("autocmd")
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
   " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  " autocmd FileType text setlocal textwidth=78
   " autocmd FileType tex setlocal textwidth=78
   " Better latex editing
   autocmd FileType tex setlocal wrap
@@ -101,7 +101,7 @@ endif " has("autocmd")
 	set showcmd		" display incomplete commands
 	set scrolloff=3         " minimum lines to keep above and below cursor
 	set wildmenu 		" Fancier commandline tab completion
-
+	set statusline=%n%<\ %f\ %m%r%w%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%Y\ %4l\ %5P
 " }
 " Searching {
 	set ignorecase                  " case insensitive search
