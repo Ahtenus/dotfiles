@@ -1,8 +1,8 @@
-A collection of some configfiles.
-Not intended for anyone else really, but if you find anything usefull feel free to use it.
+A collection of some config files.
+Not intended for anyone else really, but if you find anything useful use it.
 
 Installation
 ------------
 Symlink the files into your home folder.
 
-Exept for bslate.vim wich goes into ~/.vim/colors
+Except for bslate.vim which goes into ~/.vim/colors
