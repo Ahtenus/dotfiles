@@ -4,7 +4,7 @@
 "	      for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
-"
+"https://gist.github.com/860397
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
@@ -27,7 +27,11 @@ if has("autocmd")
   filetype plugin indent on
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
-  autocmd FileType tex setlocal textwidth=78
+  " autocmd FileType tex setlocal textwidth=78
+  " Better latex editing
+  autocmd FileType tex setlocal wrap
+  autocmd FileType tex setlocal linebreak
+
   autocmd! bufwritepost .vimrc source % " Apply settings on write 
   cmap w!! w !sudo tee % >/dev/null
   " autocmd BufEnter * lcd %:p:h " Use directory of file as current directory
@@ -43,6 +47,7 @@ else
 
 endif " has("autocmd")
 " Remaps {
+	let mapleader = ","
 	if has('mouse')
 		set mouse=a
 	endif
@@ -62,6 +67,7 @@ endif " has("autocmd")
 	map <C-k> <C-W>k
 	map <C-h> <C-W>h
 	map <C-l> <C-W>l
+
 	" Select all
 	map <leader>a ggVG
 	" Copy all
@@ -70,7 +76,7 @@ endif " has("autocmd")
  	map <c-y> "+y
 	map <c-p> "+p
 
-	let mapleader = ","
+	cmap W w
 	" save and compile latex document
 	map <leader>p :w \| !pdflatex %
 " }
@@ -95,6 +101,7 @@ endif " has("autocmd")
 	set showcmd		" display incomplete commands
 	set scrolloff=3         " minimum lines to keep above and below cursor
 	set wildmenu 		" Fancier commandline tab completion
+
 " }
 " Searching {
 	set ignorecase                  " case insensitive search
