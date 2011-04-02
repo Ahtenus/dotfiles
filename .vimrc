@@ -84,6 +84,7 @@ endif " has("autocmd")
 " }
 " Plugins {
 	call pathogen#runtime_append_all_bundles()
+	" call pathogen#helptags()
 	let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 	let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"
 	let g:miniBufExplMapCTabSwitchBufs = 1
@@ -97,7 +98,8 @@ endif " has("autocmd")
 		syntax on
 		set hlsearch
 		set gfn=Inconsolata\ Medium\ 13
-		colorscheme bslate 
+		set background=dark
+		colorscheme solarized
 		" set guioptions-=m  "remove menu bar
 		set guioptions-=T  "remove toolbar
 	endif
