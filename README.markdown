@@ -2,12 +2,13 @@ A collection of some config files.
 
 Installation
 ------------
-1. Pull down the vim plugins
+Pull down the vim plugins
 
 	git submodule init
 	git submodule update
 
-2. Symlink the files/folders into your home folder.
+Symlink the files/folders into your home folder.
+
 
 Adding new plugins
 ------------------
