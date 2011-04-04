@@ -3,6 +3,7 @@ A collection of some config files.
 Installation
 ------------
 1. Pull down the vim plugins
+
 	git submodule init
 	git submodule update
 
