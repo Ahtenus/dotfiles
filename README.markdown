@@ -2,8 +2,10 @@ A collection of some config files.
 
 Installation
 ------------
-Pull down the vim plugins
 
+	cd ~
+	git clone git://github.com/Ahtenus/dotfiles.git
+	cd dotfiles
 	git submodule init
 	git submodule update
 
