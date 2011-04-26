@@ -34,7 +34,7 @@ if has("autocmd")
 
   autocmd! bufwritepost .vimrc source % " Apply settings on write 
   cmap w!! w !sudo tee % >/dev/null
-  " autocmd BufEnter * lcd %:p:h " Use directory of file as current directory
+  autocmd BufEnter * lcd %:p:h " Use directory of file as current directory
 
   " When editing a file, always jump to the last known cursor position.
   autocmd BufReadPost *
@@ -59,6 +59,8 @@ endif " has("autocmd")
 	inoremap <C-U> <C-G>u<C-U>
 
 	" Move by screen lines
+	nnoremap gj j 
+	nnoremap gk k 
 	nnoremap j gj
 	nnoremap k gk
 	set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -78,7 +80,7 @@ endif " has("autocmd")
 
 	cmap W w
 	" save and compile latex document
-	map <leader>p :w \| !pdflatex %<CR>
+	map <leader>p :w \| lcd %:p:h \| !pdflatex %<CR>
 	" Change dir to current file location
 	map <leader>cd :cd %:p:h<CR>:pwd<CR>
 " }
@@ -88,6 +90,7 @@ endif " has("autocmd")
 	let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 	let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"
 	let g:miniBufExplMapCTabSwitchBufs = 1
+	map <leader>n :NERDTreeToggle<CR>
 
 " }
 

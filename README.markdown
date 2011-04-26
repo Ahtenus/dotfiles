@@ -9,7 +9,7 @@ Installation
 	git submodule init
 	git submodule update
 
-Symlink the files/folders into your home folder.
+Symlink the files/folders into your home folder using the link.sh script.
 
 
 Adding new plugins
