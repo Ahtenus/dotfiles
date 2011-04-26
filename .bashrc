@@ -123,7 +123,7 @@ function cowfort(){
 	/usr/games/fortune | $command -f $cow
 }
 # Add custom commands that should not be version contorlled to .bash_custom
-if [ -f ~/.bash_custom]; then
+if [ -f ~/.bash_custom ]; then
     . ~/.bash_custom
 fi
 cowfort
