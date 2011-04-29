@@ -89,8 +89,10 @@ alias la='ls -A'
 alias apti='sudo apt-get install'
 alias s='sudo'
 alias log='git log --oneline'
+alias h='history | grep'
 
 function cowfort(){
+if [ -x /usr/games/fortune ] ; then
 	RANGE=4
 	number=$RANDOM
 	let "number %= $RANGE"
@@ -120,10 +122,15 @@ function cowfort(){
 			command="/usr/games/cowthink"
 			;;
 	esac
-	/usr/games/fortune | $command -f $cow
+	if [ -x $command ] ;then 
+		/usr/games/fortune | $command -f $cow
+	else
+		/usr/games/fortune
+	fi
+fi
 }
-# Add custom commands that should not be version contorlled to .bash_custom
+# Add custom commands that should not be version controlled to .bash_custom
 if [ -f ~/.bash_custom ]; then
     . ~/.bash_custom
 fi
-cowfort
+#cowfort
