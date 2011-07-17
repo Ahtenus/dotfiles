@@ -83,6 +83,8 @@ endif " has("autocmd")
 	map <leader>p :w \| lcd %:p:h \| !pdflatex %<CR>
 	" Change dir to current file location
 	map <leader>cd :cd %:p:h<CR>:pwd<CR>
+	noremap <C-left> :bprev<CR>
+	noremap <C-right> :bnext<CR> 
 " }
 " Plugins {
 	call pathogen#runtime_append_all_bundles()
