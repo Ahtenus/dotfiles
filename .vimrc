@@ -34,7 +34,7 @@ if has("autocmd")
 
   autocmd! bufwritepost .vimrc source % " Apply settings on write 
   cmap w!! w !sudo tee % >/dev/null
-  autocmd BufEnter * lcd %:p:h " Use directory of file as current directory
+  " autocmd BufEnter * lcd %:p:h " Use directory of file as current directory
 
   " When editing a file, always jump to the last known cursor position.
   autocmd BufReadPost *
@@ -83,6 +83,11 @@ endif " has("autocmd")
 	map <leader>p :w \| lcd %:p:h \| !pdflatex %<CR>
 	" Change dir to current file location
 	map <leader>cd :cd %:p:h<CR>:pwd<CR>
+	"" Easier spellchecking
+	" nmap <right> ]s
+	" nmap <left> [s
+	" nmap <down> z=
+	" nmap <up><up> zg
 " }
 " Plugins {
 	call pathogen#runtime_append_all_bundles()
