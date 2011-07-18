@@ -88,6 +88,8 @@ endif " has("autocmd")
 	" nmap <left> [s
 	" nmap <down> z=
 	" nmap <up><up> zg
+	noremap <left> :bprev<CR>
+	noremap <right> :bnext<CR> 
 " }
 " Plugins {
 	call pathogen#runtime_append_all_bundles()
@@ -105,7 +107,11 @@ endif " has("autocmd")
 	if &t_Co > 2 || has("gui_running")
 		syntax on
 		set hlsearch
-		set gfn=Inconsolata\ Medium\ 13
+		if has('win32') 
+			set gfn=Inconsolata:h13:cANSI
+		else 
+			set gfn=Inconsolata\ Medium\ 13
+		endif
 		set background=dark
 		colorscheme solarized
 		" set guioptions-=m  "remove menu bar
