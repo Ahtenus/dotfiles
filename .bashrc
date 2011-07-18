@@ -90,7 +90,8 @@ alias apti='sudo apt-get install'
 alias s='sudo'
 alias log='git log --oneline'
 alias h='history | grep'
-
+alias gca='git commit -a'
+alias gcam='git commit -a -m'
 function cowfort(){
 if [ -x /usr/games/fortune ] ; then
 	RANGE=4
