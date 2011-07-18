@@ -88,8 +88,8 @@ endif " has("autocmd")
 	" nmap <left> [s
 	" nmap <down> z=
 	" nmap <up><up> zg
-	noremap <left> :bprev<CR>
-	noremap <right> :bnext<CR> 
+	noremap <c-left> :bprev<CR>
+	noremap <c-right> :bnext<CR> 
 " }
 " Plugins {
 	call pathogen#runtime_append_all_bundles()
