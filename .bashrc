@@ -85,6 +85,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
+alias du='du -h'
+alias df='df -h'
 
 alias apti='sudo apt-get install'
 alias s='sudo'
