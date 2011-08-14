@@ -94,11 +94,10 @@ endif " has("autocmd")
 " Plugins {
 	call pathogen#runtime_append_all_bundles()
 	" call pathogen#helptags()
-	let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-	let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"
-	let g:miniBufExplMapCTabSwitchBufs = 1
+	"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+	"let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"
+	"let g:miniBufExplMapCTabSwitchBufs = 1
 	map <leader>n :NERDTreeToggle<CR>
-
 " }
 
 " UI {

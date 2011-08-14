@@ -1,2 +1,1 @@
-supertab.vba: call delete('/home/viktor/.vim/doc/supertab.txt')|call delete('/home/viktor/.vim/plugin/supertab.vim')
 checksyntax.vba: call delete('/home/viktor/.vim/doc/checksyntax.txt')|call delete('/home/viktor/.vim/plugin/checksyntax.vim')|call delete('/home/viktor/.vim/autoload/checksyntax.vim')
