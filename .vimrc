@@ -98,6 +98,7 @@ endif " has("autocmd")
 	"let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"
 	"let g:miniBufExplMapCTabSwitchBufs = 1
 	map <leader>n :NERDTreeToggle<CR>
+	let g:vimwiki_use_mouse = 1
 " }
 
 " UI {
@@ -111,11 +112,12 @@ endif " has("autocmd")
 		else 
 			set gfn=Inconsolata\ Medium\ 13
 		endif
-		set background=dark
-		colorscheme solarized
-		" set guioptions-=m  "remove menu bar
+			" set guioptions-=m  "remove menu bar
 		set guioptions-=T  "remove toolbar
 	endif
+	set background=dark
+	colorscheme solarized
+
 	set showmode
 	set ruler		" show the cursor position all the time
 	set showcmd		" display incomplete commands
