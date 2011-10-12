@@ -29,8 +29,8 @@ if has("autocmd")
   " autocmd FileType text setlocal textwidth=78
   " autocmd FileType tex setlocal textwidth=78
   " Better latex editing
-  autocmd BufNewFile,BufRead *.tex setlocal wrap
-  autocmd BufNewFile,BufRead *.tex setlocal linebreak
+  " autocmd BufNewFile,BufRead *.tex setlocal wrap
+  " autocmd BufNewFile,BufRead *.tex setlocal linebreak
 
 
   autocmd! bufwritepost .vimrc source % " Apply settings on write 
@@ -47,6 +47,7 @@ else
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
+
 " Remaps {
 	let mapleader = ","
 	if has('mouse')
@@ -81,7 +82,8 @@ endif " has("autocmd")
 
 	cmap W w
 	" save and compile latex document
-	map <leader>p :w \| lcd %:p:h \| !pdflatex "%"<CR>
+	" map <leader>p :w \| lcd %:p:h \| !pdflatex "%"<CR>
+	map <leader>p :w \| :make<CR>
 	" Change dir to current file location
 	map <leader>cd :cd %:p:h<CR>:pwd<CR>
 	"" Easier spellchecking
