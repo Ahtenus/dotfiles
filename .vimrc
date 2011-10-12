@@ -29,8 +29,9 @@ if has("autocmd")
   " autocmd FileType text setlocal textwidth=78
   " autocmd FileType tex setlocal textwidth=78
   " Better latex editing
-  autocmd FileType tex setlocal wrap
-  autocmd FileType tex setlocal linebreak
+  autocmd BufNewFile,BufRead *.tex setlocal wrap
+  autocmd BufNewFile,BufRead *.tex setlocal linebreak
+
 
   autocmd! bufwritepost .vimrc source % " Apply settings on write 
   cmap w!! w !sudo tee % >/dev/null
@@ -80,7 +81,7 @@ endif " has("autocmd")
 
 	cmap W w
 	" save and compile latex document
-	map <leader>p :w \| lcd %:p:h \| !pdflatex %<CR>
+	map <leader>p :w \| lcd %:p:h \| !pdflatex "%"<CR>
 	" Change dir to current file location
 	map <leader>cd :cd %:p:h<CR>:pwd<CR>
 	"" Easier spellchecking
@@ -90,6 +91,9 @@ endif " has("autocmd")
 	" nmap <up><up> zg
 	noremap <c-left> :bprev<CR>
 	noremap <c-right> :bnext<CR> 
+	map <leader>v :split $MYVIMRC<CR>
+	" map <leader>c :w \| !gcc -pedantic -std=c99 -o %< %<CR>
+	" map <leader>r !echo %<
 " }
 " Plugins {
 	call pathogen#runtime_append_all_bundles()
@@ -123,7 +127,8 @@ endif " has("autocmd")
 	set showcmd		" display incomplete commands
 	set scrolloff=3         " minimum lines to keep above and below cursor
 	set wildmenu 		" Fancier commandline tab completion
-	set statusline=%n%<\ %f\ %m%r%w%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%Y\ %4l\ %5P
+	set statusline=%n%<\ %f\ %m%r%w\ %{fugitive#statusline()}%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%Y\ %4l\ %5P
+	set laststatus=2
 " }
 " Searching {
 	set ignorecase                  " case insensitive search
@@ -133,3 +138,7 @@ endif " has("autocmd")
 	" clear search highlight
 	nmap <silent> <C-N> :silent noh<CR>
 " }
+"
+" :split $MYVIMRC | Open in split
+"
+"
