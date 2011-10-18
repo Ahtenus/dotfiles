@@ -80,10 +80,11 @@ endif " has("autocmd")
  	map <c-y> "+y
 	map <c-p> "+p
 
-	cmap W w
+	" cmap W w
 	" save and compile latex document
 	" map <leader>p :w \| lcd %:p:h \| !pdflatex "%"<CR>
 	map <leader>p :w \| :make<CR>
+	map <leader>r :!./%<<CR>
 	" Change dir to current file location
 	map <leader>cd :cd %:p:h<CR>:pwd<CR>
 	"" Easier spellchecking
@@ -141,6 +142,19 @@ endif " has("autocmd")
 	nmap <silent> <C-N> :silent noh<CR>
 " }
 "
-" :split $MYVIMRC | Open in split
 "
+" Command reference
+" =================
+"
+" :split $MYVIMRC	Open in split
+" ;	Repeat last f command.
+" * 	Read the string under the cursor and go to the next place it appears.
+" gq	Reformat text (textwidth)
+" gi	Go to where you last edited
+" +p	Paste from system clipboard
+"
+"
+" In editmode
+" 
+" <C-R>=	Insert calculated answer
 "

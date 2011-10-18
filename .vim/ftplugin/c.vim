@@ -1,1 +1,1 @@
-setlocal makeprg=gcc\ $*\ -std=c99\ -o\ %<\ %    
+setlocal makeprg=gcc\ $*\ -Wall\ -std=c99\ -o\ %<\ %    
