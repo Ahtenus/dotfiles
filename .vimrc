@@ -84,7 +84,10 @@ endif " has("autocmd")
 	" save and compile latex document
 	" map <leader>p :w \| lcd %:p:h \| !pdflatex "%"<CR>
 	map <leader>p :w \| :make<CR>
-	map <leader>r :!./%<<CR>
+	"Open file without extension
+	map <leader>r :!%:p:h/%:t:r<CR> " Ser inte output
+	map <leader>R :!%:p:h/%:t:r
+	map <leader>t :!time :!%:p:h/%:t:r<CR>
 	" Change dir to current file location
 	map <leader>cd :cd %:p:h<CR>:pwd<CR>
 	"" Easier spellchecking
