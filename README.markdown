@@ -8,6 +8,7 @@ Installation
 	cd dotfiles
 	git submodule init
 	git submodule update
+	./link.sh
 
 Symlink the files/folders into your home folder using the link.sh script.
 
