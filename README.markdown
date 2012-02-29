@@ -8,8 +8,7 @@ Installation
 	cd dotfiles
 	git submodule init
 	git submodule update
-
-Symlink the files/folders into your home folder using the link.sh script.
+	./link.sh
 
 
 Adding new plugins
