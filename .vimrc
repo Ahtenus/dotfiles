@@ -80,7 +80,7 @@ endif " has("autocmd")
  	map <c-y> "+y
 	map <c-p> "+p
 
-	" cmap W w
+	cmap W w
 	" save and compile latex document
 	" map <leader>p :w \| lcd %:p:h \| !pdflatex "%"<CR>
 	map <leader>p :w \| :make<CR>
@@ -128,12 +128,13 @@ endif " has("autocmd")
 	set background=dark
 	colorscheme solarized
 
+	set rnu
 	set showmode
 	set ruler		" show the cursor position all the time
 	set showcmd		" display incomplete commands
 	set scrolloff=3         " minimum lines to keep above and below cursor
 	set wildmenu 		" Fancier commandline tab completion
-	set statusline=%n%<\ %f\ %m%r%w\ %{fugitive#statusline()}%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%Y\ %4l\ %5P
+	set statusline=%n%<\ %f\ %m%r%w\ %{fugitive#statusline()}%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%Y\ %4c\ \|\ %4l\ 
 	set laststatus=2
 " }
 " Searching {
