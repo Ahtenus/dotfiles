@@ -128,7 +128,7 @@ endif " has("autocmd")
 	set background=dark
 	colorscheme solarized
 
-	set rnu
+	" set rnu
 	set showmode
 	set ruler		" show the cursor position all the time
 	set showcmd		" display incomplete commands
