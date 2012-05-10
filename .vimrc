@@ -128,6 +128,21 @@ endif " has("autocmd")
 	set background=dark
 	colorscheme solarized
 
+	function! ToggleBackground()
+		if (g:solarized_style=="dark")
+		let g:solarized_style="light"
+		colorscheme solarized
+	else
+		let g:solarized_style="dark"
+		colorscheme solarized
+	endif
+	endfunction
+	command! Togbg call ToggleBackground()
+
+	set diffopt+=iwhite
+	set tabstop=4
+	set shiftwidth=4
+
 	" set rnu
 	set showmode
 	set ruler		" show the cursor position all the time
@@ -156,9 +171,19 @@ endif " has("autocmd")
 " gq	Reformat text (textwidth)
 " gi	Go to where you last edited
 " +p	Paste from system clipboard
-"
+" 
 "
 " In editmode
 " 
 " <C-R>=	Insert calculated answer
 "
+" Command mode
+" ============
+"
+" :lvim searchterm files
+" :lw	To show list
+"
+" * - seach in current dir 
+" ** - search recursively
+
+" :setf php - set syntax highlight to php
