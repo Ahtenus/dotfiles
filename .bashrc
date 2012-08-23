@@ -87,7 +87,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias du='du -h'
 alias df='df -h'
-
+alias svndiff='svn diff -x --ignore-space-change | view -'
 alias apti='sudo apt-get install'
 alias s='sudo'
 alias log='git log --oneline'
