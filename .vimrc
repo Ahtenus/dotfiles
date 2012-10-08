@@ -42,6 +42,16 @@ if has("autocmd")
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
 else
 
   set autoindent		" always set autoindenting on
@@ -75,15 +85,15 @@ endif " has("autocmd")
 	" Select all
 	map <leader>a ggVG
 	" Copy all
-	nmap <leader>y gg"+yG 
+	nmap <leader>Y gg"+yG 
 	" Easier copy/paste to global clipboard
- 	map <c-y> "+y
-	map <c-p> "+p
+ 	map <leader>y "+y
+	map <leader>p "+p
 
 	cmap W w
 	" save and compile latex document
 	" map <leader>p :w \| lcd %:p:h \| !pdflatex "%"<CR>
-	map <leader>p :w \| :make<CR>
+	map <leader>m :w \| :make<CR>
 	"Open file without extension
 	map <leader>r :!%:p:h/%:t:r<CR> " Ser inte output
 	map <leader>R :!%:p:h/%:t:r
@@ -109,6 +119,7 @@ endif " has("autocmd")
 	"let g:miniBufExplMapCTabSwitchBufs = 1
 	map <leader>n :NERDTreeToggle<CR>
 	let g:vimwiki_use_mouse = 1
+	let g:ctrlp_working_path_mode = 0
 " }
 
 " UI {
