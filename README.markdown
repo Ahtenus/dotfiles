@@ -14,3 +14,6 @@ Installation
 Adding new plugins
 ------------------
 	git submodule add git://url-to-plugin.git .vim/bundle/plugin-name
+	vim -c 'call pathogen#helptags()|q'
+	git submodule init
+	git submodule update
