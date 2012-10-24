@@ -90,7 +90,7 @@ endif " has("autocmd")
  	map <leader>y "+y
 	map <leader>p "+p
 
-	cmap W w
+	" cmap W w
 	" save and compile latex document
 	" map <leader>p :w \| lcd %:p:h \| !pdflatex "%"<CR>
 	map <leader>m :w \| :make<CR>
