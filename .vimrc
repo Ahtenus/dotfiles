@@ -112,7 +112,8 @@ endif " has("autocmd")
 	" map <leader>r !echo %<
 " }
 " Plugins {
-	call pathogen#runtime_append_all_bundles()
+ 	call pathogen#infect()
+	" call pathogen#runtime_append_all_bundles()
 	" call pathogen#helptags()
 	"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 	"let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"

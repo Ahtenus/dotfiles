@@ -133,10 +133,17 @@ if [ -x /usr/games/fortune ] ; then
 fi
 }
 function a2pslatin {
-	temp=`mktemp --suffix=.${1##*/}`
-	iconv -f utf-8 -t latin1 $1 -o $temp
-	a2ps --encoding=latin1 -B --title=${1##*/} $temp -o ${1##*/}.ps
-	ps2pdf ${1##*/}.ps ${1##*/}.pdf
+for ARG in $*
+do
+	temp=`mktemp --suffix=.${ARG##*/}`
+	iconv -f utf-8 -t latin1 $ARG -o $temp
+	a2ps --encoding=latin1 -B --title=${ARG##*/} $temp -o ${ARG##*/}.ps
+	ps2pdf ${ARG##*/}.ps ${ARG##*/}.pdf
+done
+}
+function aa {
+	echo $1
+	echo ${1##*/}
 }
 # Add custom commands that should not be version controlled to .bash_custom
 if [ -f ~/.bash_custom ]; then
