@@ -199,3 +199,4 @@ endif " has("autocmd")
 " ** - search recursively
 
 " :setf php - set syntax highlight to php
+" :lv /\.bind(\|\.on(/g **    " matcha .bind( och .on(
