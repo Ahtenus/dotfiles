@@ -93,7 +93,9 @@ endif " has("autocmd")
 	" cmap W w
 	" save and compile latex document
 	" map <leader>p :w \| lcd %:p:h \| !pdflatex "%"<CR>
-	map <leader>m :w \| :make<CR>
+	"map <leader>m :w \| :make<CR>
+	" ! to not jump to error
+	map <leader>m :w \| :make!<CR>
 	"Open file without extension
 	map <leader>r :!%:p:h/%:t:r<CR> " Ser inte output
 	map <leader>R :!%:p:h/%:t:r
@@ -173,6 +175,12 @@ endif " has("autocmd")
 	nmap <silent> <C-N> :silent noh<CR>
 " }
 "
+
+" Project specific
+" ----------------
+autocmd BufNewFile,BufRead ~/hellofuture/trunk/2013/assets/less/*.less setlocal makeprg=lessc\ --no-color\ %\ %:p:h:h/css/%:t:r.css
+
+
 "
 " Command reference
 " =================
