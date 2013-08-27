@@ -165,6 +165,7 @@ endif " has("autocmd")
 	set wildmenu 		" Fancier commandline tab completion
 	set statusline=%n%<\ %f\ %m%r%w\ %{fugitive#statusline()}%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%Y\ %4c\ \|\ %4l\ 
 	set laststatus=2
+	set relativenumber
 " }
 " Searching {
 	set ignorecase                  " case insensitive search
@@ -178,7 +179,10 @@ endif " has("autocmd")
 
 " Project specific
 " ----------------
-autocmd BufNewFile,BufRead ~/hellofuture/trunk/2013/assets/less/*.less setlocal makeprg=lessc\ --no-color\ %\ %:p:h:h/css/%:t:r.css
+autocmd BufNewFile,BufRead ~/hellofuture/trunk/2013/assets/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ %\ %:p:h:h/css/%:t:r.css
+autocmd BufNewFile,BufRead ~/projects/trunk/nk/wp-content/themes/nk/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ %\ %:p:h:h/css/%:t:r.css
+autocmd BufNewFile,BufRead ~/kommunplattform/web/frontend/trunk/framework/clients/skelleftea/assets/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ %\ %:p:h:h/css/%:t:r.css
+autocmd BufNewFile,BufRead ~/kommunplattform/web/frontend/trunk/framework/shared/assets/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ %:p:h:h:h:h/clients/skelleftea/assets/less/%:t:r.less\ %:p:h:h:h:h/clients/skelleftea/assets/css/%:t:r.css
 
 
 "
@@ -208,3 +212,5 @@ autocmd BufNewFile,BufRead ~/hellofuture/trunk/2013/assets/less/*.less setlocal 
 
 " :setf php - set syntax highlight to php
 " :lv /\.bind(\|\.on(/g **    " matcha .bind( och .on(
+"
+" error_log("You messed up!"."\n", 3, "/var/tmp/ahtenus-debug.log");
