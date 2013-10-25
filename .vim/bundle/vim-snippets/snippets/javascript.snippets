@@ -95,7 +95,7 @@ snippet gett
 	getElementBy${1:Id}('${2}')${3}
 # console.log (Firebug)
 snippet cl
-	console.log(${1});
+	console.log(${1:"--"}${2:);}
 # return
 snippet ret
 	return ${1:result}
@@ -215,3 +215,5 @@ snippet exectime
 	${1}
 	var end = new Date().getTime();
 	console.log(end - start); // Execution time
+snippet that
+	var that = this;

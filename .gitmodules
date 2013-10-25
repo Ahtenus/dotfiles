@@ -34,6 +34,6 @@
 [submodule ".vim/bundle/addon-mw-utils"]
 	path = .vim/bundle/addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule ".vim/bundle/vim-snippets"]
-	path = .vim/bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets
+#[submodule ".vim/bundle/vim-snippets"]
+#	path = .vim/bundle/vim-snippets
+#	url = https://github.com/honza/vim-snippets
