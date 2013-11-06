@@ -6,7 +6,7 @@
 SCRIPT=$(readlink -f $0)
 SCRIPTPATH=`dirname $SCRIPT`
 cd ~
-for i in .vim .vimrc .bashrc
+for i in .vim .vimrc .bashrc .fonts
 do
 	if [ -e $i ]
 	then
@@ -17,5 +17,5 @@ do
 done
 if [ -n "$backed" ]
 then
-	echo "Backed up already existing files: $backed"
+	echo "Backed up already existing files/directories: $backed"
 fi

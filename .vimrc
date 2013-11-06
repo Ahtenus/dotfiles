@@ -171,6 +171,7 @@ endif " has("autocmd")
 	set statusline=%n%<\ %f\ %m%r%w\ %{fugitive#statusline()}%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%Y\ %4c\ \|\ %4l\ 
 	set laststatus=2
 	set relativenumber
+	set number
 " }
 " Searching {
 	set ignorecase                  " case insensitive search
