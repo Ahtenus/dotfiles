@@ -119,3 +119,6 @@ snippet fte
 	var.test(${1:x}, ${2:y})
 snippet kvt
 	kv.test(${1:x}, ${2:y})
+
+snippet logr
+	write.csv(as.data.frame(do.call(rbind, ${1:inTable})),"/var/tmp/R-debug.log");
