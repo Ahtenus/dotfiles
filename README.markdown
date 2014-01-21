@@ -6,15 +6,18 @@ Simple installation
 
     curl https://raw.github.com/Ahtenus/dotfiles/master/install | bash
 
-This above command is exactly eqvivalent to
+or
+
+    wget -q0- https://raw.github.com/Ahtenus/dotfiles/master/install | bash
+
+This above command is eqvivalent to
 
 	cd ~
-	git clone git://github.com/Ahtenus/dotfiles.git
+	git clone https://github.com/Ahtenus/dotfiles.git
 	cd dotfiles
 	git submodule init
 	git submodule update
 	./link.sh
-
 
 Adding new Vim plugins
 ----------------------
