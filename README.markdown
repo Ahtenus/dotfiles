@@ -1,7 +1,12 @@
 A collection of some config files.
 
 Installation
-------------
+============
+Simple installation
+
+    curl https://raw.github.com/Ahtenus/dotfiles/master/install | bash
+
+This above command is exactly eqvivalent to
 
 	cd ~
 	git clone git://github.com/Ahtenus/dotfiles.git
