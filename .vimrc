@@ -102,6 +102,7 @@ endif " has("autocmd")
 	map <leader>t :!time :!%:p:h/%:t:r<CR>
 	" Change dir to current file location
 	map <leader>cd :cd %:p:h<CR>:pwd<CR>
+	map <leader>gt :! gnome-terminal &<CR><CR>
 	"" Easier spellchecking
 	" nmap <right> ]s
 	" nmap <left> [s
