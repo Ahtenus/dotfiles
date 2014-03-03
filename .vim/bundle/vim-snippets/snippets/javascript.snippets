@@ -217,3 +217,38 @@ snippet exectime
 	console.log(end - start); // Execution time
 snippet that
 	var that = this;
+snippet addKeys
+	function addValue(value, keys) {
+		var obj = {};
+		for(var key in keys) {
+			obj[key] = value;
+		}
+		return obj;
+	}
+
+snippet backboneView
+	define(function() {
+		var ${1:This} = Backbone.View.extend({
+			TEMPLATE: _.template('${2}'),
+			initialize: function() {
+				${3}
+			},
+			render: function() {
+				this.$el.html(this.TEMPLATE(this.TEMPLATE_VARS));
+				${4}
+			}
+		});
+		return $1;
+	});
+snippet backbone
+	define(${3:[]},function(${4}) {
+		var ${1:This} = ${2:Backbone.View}.extend({
+			initialize: function() {
+				${3}
+			}
+		});
+		return $1;
+	});
+snippet super
+	${1}.__super__.${2}.call(this);
+

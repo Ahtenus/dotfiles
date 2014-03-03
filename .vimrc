@@ -110,8 +110,10 @@ endif " has("autocmd")
 	noremap <c-left> :bprev<CR>
 	noremap <c-right> :bnext<CR> 
 	map <leader>v :split $MYVIMRC<CR>
+	" Sort lines " Great for Python imports. nnoremap <leader>s vip:!sort<cr> vnoremap <leader>s :!sort<cr> 
 	" map <leader>c :w \| !gcc -pedantic -std=c99 -o %< %<CR>
 	" map <leader>r !echo %<
+	imap <c-space> <c-x><c-o>
 " }
 " Plugins {
  	call pathogen#infect()
@@ -187,6 +189,7 @@ endif " has("autocmd")
 autocmd BufNewFile,BufRead ~/hellofuture/trunk/2013/assets/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ %\ %:p:h:h/css/%:t:r.css
 autocmd BufNewFile,BufRead ~/projects/trunk/nk/wp-content/themes/nk/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ %\ %:p:h:h/css/%:t:r.css
 autocmd BufNewFile,BufRead ~/projects/trunk/intel/pack-the-sled/www/assets/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ %\ %:p:h:h/css/%:t:r.css
+autocmd BufNewFile,BufRead ~/spiderdash/branches/webapp-2.0/htdocs/assets/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ ~/spiderdash/branches/webapp-2.0/htdocs/assets/less/mainlayout.less\ ~/spiderdash/branches/webapp-2.0/htdocs/assets/css/mainlayout.css
 autocmd BufNewFile,BufRead ~/kommunplattform/web/frontend/trunk/framework/clients/skelleftea/assets/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ %\ %:p:h:h/css/%:t:r.css
 autocmd BufNewFile,BufRead ~/kommunplattform/web/frontend/trunk/framework/shared/assets/less/*.less setlocal makeprg=lessc\ --yui-compress\ --no-color\ %:p:h:h:h:h/clients/skelleftea/assets/less/%:t:r.less\ %:p:h:h:h:h/clients/skelleftea/assets/css/%:t:r.css
 
@@ -220,3 +223,7 @@ autocmd BufNewFile,BufRead ~/kommunplattform/web/frontend/trunk/framework/shared
 " :lv /\.bind(\|\.on(/g **    " matcha .bind( och .on(
 "
 " error_log("You messed up!"."\n", 3, "/var/tmp/ahtenus-debug.log");
+"
+" remove ^M lineendings
+" :%s/<Ctrl-V><Ctrl-M>//g
+" 

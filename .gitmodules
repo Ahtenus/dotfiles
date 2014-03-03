@@ -37,3 +37,6 @@
 #[submodule ".vim/bundle/vim-snippets"]
 #	path = .vim/bundle/vim-snippets
 #	url = https://github.com/honza/vim-snippets
+[submodule ".vim/bundle/tern_for_vim"]
+	path = .vim/bundle/tern_for_vim
+	url = https://github.com/marijnh/tern_for_vim.git
