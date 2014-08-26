@@ -98,6 +98,8 @@ alias log='git log --oneline'
 alias h='history | grep'
 alias gca='git commit -a'
 alias gcam='git commit -a -m'
+alias gdiff='git diff | view -'
+alias gitdiff='gdiff'
 function cowfort(){
 if [ -x /usr/games/fortune ] ; then
 	RANGE=4
@@ -154,3 +156,7 @@ if [ -f ~/.bash_custom ]; then
     . ~/.bash_custom
 fi
 #cowfort
+
+# .rbenv ... not using atm...
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"

@@ -13,7 +13,7 @@ snippet func
 snippet fun
 	function (${1}) {
 		${3}
-	}${2:;}
+	}${2:,}
 # Immediate function
 snippet (f
 	(function (${1}) {
@@ -252,3 +252,12 @@ snippet backbone
 snippet super
 	${1}.__super__.${2}.call(this);
 
+snippet define 
+	define([],function() {
+		// NOTE: singleton? (not fully tested)
+		return {
+			${1}: function() {
+
+			}
+		};
+	});
