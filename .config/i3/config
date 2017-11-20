@@ -151,7 +151,8 @@ bindsym $mod+Shift+odiaeresis exec "i3-nagbar -t warning -m 'You pressed the exi
 
 bindsym Print exec "gnome-screenshot --interactive"
 
-bindsym $mod+l exec "i3lock -e -d --color=333333"
+# bindsym $mod+l exec --no-startup-id "i3lock -d --color=333333 -e && xset dpms force suspend"
+bindsym $mod+l exec --no-startup-id "i3lock -d -c 333333 -e && xset dpms force suspend"
 
 bindsym Shift+F12 exec "setxkbmap se"
 bindsym Shift+F11 exec "setxkbmap se dvorak_a5"
@@ -220,7 +221,7 @@ bar {
 #
 
 # exec xautolock -time 5 -locker 'gnome-screensaver-command -l' &
-exec --no-startup-id xautolock -time 5 -locker 'i3lock --color=000000'
+exec --no-startup-id xautolock -time 5 -locker 'i3lock -d -c 333333 -e && xset dpms force suspend'
 exec --no-startup-id xset dpms 300 300 300 # Turn of monitor
 exec --no-startup-id compton # For slack streen sharing window transparency
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
