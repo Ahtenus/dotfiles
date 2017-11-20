@@ -6,7 +6,7 @@
 SCRIPT=$(readlink -f $0)
 SCRIPTPATH=`dirname $SCRIPT`
 cd ~
-for i in .vim .vimrc .bashrc .fonts
+for i in .vim .vimrc .bashrc .fonts .oh-my-zsh/custom .zshrc
 do
 	if [ -e $i ]
 	then

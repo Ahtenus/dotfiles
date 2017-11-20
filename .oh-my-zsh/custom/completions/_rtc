@@ -1,0 +1,13 @@
+#compdef rtc-logl rtc-log rtc-stop rtc-start
+
+# _arguments "1:Server:(augw1a aup d1 didp digw1a mddp mdgw1a mdgw1b mdhn1p mdhn2p mdpe1p mdpe2p mdve1a mdve1b rcdp re1p re2p re3p rgw1a rl1a rl1b sddp sdgw1a sdn1p ui1ia vs)"
+
+_rtc-log() { 
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+ 
+	SERVERS=`find ./environments/developer/deployment/system/ -type d -name "log" -exec dirname {} \; | sed "s:.*/::" | tr "\n" " "`
+	_arguments '1:Server:('$SERVERS')'
+}
+ 
+_rtc-log "$@"
