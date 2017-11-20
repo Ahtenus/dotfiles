@@ -34,7 +34,7 @@ markup=nonetime
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-[rtc]
+#[rtc]
 #label=VOL
 #label=♪
 #instance=Master
@@ -42,28 +42,27 @@ markup=nonetime
 interval=10
 #signal=10
 
-# Volume indicator
+# CPU usage
 #
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
-[volume]
-#label=VOL
-label=♪
-instance=Master
-#instance=PCM
-interval=once
-signal=10
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[cpu_usage]
+label=CPU
+interval=10
+#min_width=CPU: 100.00%
+align=right
+#separator=false
+
 
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-#[memory]
-#label=MEM
+[memory]
+label=MEM
 #separator=false
-#interval=30
+interval=30
 
-##[memory]
+#[memory]
 #label=SWAP
 #instance=swap
 #separator=false
@@ -98,16 +97,6 @@ signal=10
 ##instance=eth0
 #interval=5
 
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[cpu_usage]
-#label=CPU
-#interval=10
-#min_width=CPU: 100.00%
-#separator=false
-
 #[load_average]
 #interval=10
 
@@ -119,6 +108,19 @@ signal=10
 ##label=⚡
 ##instance=1
 #interval=30
+
+# Volume indicator
+#
+# The first parameter sets the step (and units to display)
+# The second parameter overrides the mixer selection
+# See the script for details.
+[volume]
+#label=VOL
+label=♪
+instance=Master
+#instance=PCM
+#interval=10
+signal=10
 
 # Date Time
 #
