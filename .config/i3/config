@@ -222,7 +222,8 @@ bar {
 
 # exec xautolock -time 5 -locker 'gnome-screensaver-command -l' &
 exec --no-startup-id xautolock -time 5 -locker 'i3lock -d -c 333333 -e && xset dpms force suspend'
-exec --no-startup-id xset dpms 300 300 300 # Turn of monitor
+# exec --no-startup-id xset dpms 300 300 300 # Turn of monitor
+exec --no-startup-id xset m 0 1000
 exec --no-startup-id compton # For slack streen sharing window transparency
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id feh --randomize --bg-fill ~/dotfiles/wallpapers/*
