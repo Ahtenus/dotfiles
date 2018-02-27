@@ -175,7 +175,7 @@ endif " has("autocmd")
 	set wildmenu 		" Fancier commandline tab completion
 	set statusline=%n%<\ %f\ %m%r%w\ %{fugitive#statusline()}%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%Y\ %4c\ \|\ %4l\ 
 	set laststatus=2
-	set relativenumber
+	" set relativenumber
 	set number
 " }
 " Searching {

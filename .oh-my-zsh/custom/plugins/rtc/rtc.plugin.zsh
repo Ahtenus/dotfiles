@@ -81,9 +81,9 @@ fi
 
 rtc-logl () {
 if [ -z "$2" ]; then
-	lnav environments/developer/deployment/system/$1/log/console/*(om[1])
+	lnav $(ls -t environments/developer/deployment/system/$1/log/console/*.log | head -1)
 else
-	$2 $3 $4 $5 $6 $7 $8 environments/developer/deployment/system/$1/log/console/*(om[1])
+	$2 $3 $4 $5 $6 $7 $8 $(ls -t environments/developer/deployment/system/$1/log/console/*.log | head -1)
 fi
 }
 
