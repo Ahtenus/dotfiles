@@ -16,7 +16,7 @@ rtc-start-wait () {
 	fi
 }
 
-alias rtc-s=' ./stop.sh'
+alias rtc-s=' ./stop.sh && rtc-list-processes'
 alias rtc-s!=' ./stop.sh && ./killOrphanProcess.sh'
 
 rtc-location () {
@@ -26,13 +26,21 @@ rtc-location () {
         echo "${PWD##*/}"
 	fi
 }
+
+rtc-list-processes () {
+   jcmd -l | grep 'JPXR'
+   true
+}
 alias rtc-a='gradle ass cDE bDE --parallel -x ui:ui-$(rtc-location)-client:assemble && rtc-start-wait' 
+alias rtc-ap='gradle ass cDE bDE --parallel -x ui:ui-$(rtc-location)-client:assemble applyJpxrDb && rtc-start-wait' 
 alias rtc-ra='gradle ass cDE bDE idea --refresh-dependencies --parallel -x ui:ui-$(rtc-location)-client:assemble && rtc-start-wait'
 
 alias rtc-test='gradle test -x ui:ui-$(rtc-location)-client:assemble'
 
 alias rtc-b='gradle build cDE bDE -x ui:ui-$(rtc-location)-client:assemble && ./start_and_create_db_au.sh'
 alias rtc-rb='gradle build cDE bDE --refresh-dependencies && rtc-start-wait'
+
+alias rtc-ci='gradle build -x ui:ui-$(rtc-location)-client:assemble'
 
 alias rtc-scb='rtc-s && rtc-cb' 
 alias rtc-cb='gradle clean build cDE bDE --refresh-dependencies && rtc-start-wait'
@@ -41,6 +49,7 @@ alias rtc-cbi='rtc-s && rtc-cb && gradle iT'
 
 alias rtc-sa='rtc-s && rtc-a'
 alias rtc-sra='rtc-s && rtc-ra'
+alias rtc-sap='rtc-s && rtc-ap'
 alias rtc-sb='rtc-s && rtc-b'
 alias rtc-srb='rtc-s && rtc-rb'
 
