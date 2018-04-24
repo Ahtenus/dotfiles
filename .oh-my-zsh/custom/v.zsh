@@ -9,6 +9,14 @@ git-branchdiff () {
 
 alias xclip="xclip -selection c"
 
-alias zshconfig="vim ~/.oh-my-zsh/custom/v.zsh && source ~/.zshrc"
-alias zshrc="vim ~/.zshrc && source ~/.zshrc"
-alias i3config="vim ~/.config/i3/config"
+alias zshconfig="code ~/.oh-my-zsh/custom/v.zsh && source ~/.zshrc"
+alias zshrc="code ~/.zshrc && source ~/.zshrc"
+alias i3config="code ~/.config/i3/config"
+
+
+json-pretty-print () {
+	for file in $@ ; do
+		mkdir -p ${file:h}/formatted/
+		python -m json.tool ${file} > ${file:h}/formatted/${file:t}
+	done
+}
