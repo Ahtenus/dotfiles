@@ -15,8 +15,10 @@ alias i3config="code ~/.config/i3/config"
 
 
 json-pretty-print () {
-	for file in $@ ; do
+	for file in $2 ; do
 		mkdir -p ${file:h}/formatted/
 		python -m json.tool ${file} > ${file:h}/formatted/${file:t}
 	done
 }
+
+alias telegram="python3 ~/telegram_api.py"

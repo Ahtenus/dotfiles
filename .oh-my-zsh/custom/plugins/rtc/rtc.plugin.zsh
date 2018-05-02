@@ -123,6 +123,23 @@ rtc-gradle () {
 	fi
 }
 
+rtc-package-patch () {
+	if [ ! -d ${1:t:r} ]; then
+		echo Creating template in ${1:t:r}
+		mkdir ${1:t:r}
+		cp ${1} ${1:t:r}
+		{
+			echo Patch contents:
+			echo ${1:t}
+			echo
+			echo Installation instructions:
+			echo - Apply the patch jar file per the standard patch instructions covered in the operators guide.
+		} > ${1:r}/${1:r}.txt
+	fi
+	rm -f ${1:t:r}.zip
+	zip -r ${1:t:r}.zip ${1:t:r}
+}
+
 ## COMPLETIONS
 
 _rtc-completion() { 
