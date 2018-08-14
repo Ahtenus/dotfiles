@@ -32,7 +32,7 @@ rtc-list-processes () {
    true
 }
 alias rtc-a='gradle ass cDE bDE --parallel -x ui:ui-$(rtc-location)-client:assemble && rtc-start-wait' 
-alias rtc-ap='gradle ass cDE bDE --parallel -x ui:ui-$(rtc-location)-client:assemble applyJpxrDb && rtc-start-wait' 
+alias rtc-ap='gradle ass cDE bDE --parallel -x ui:ui-$(rtc-location)-client:assemble && gradle applyJpxrDb && rtc-start-wait' 
 alias rtc-ra='gradle ass cDE bDE idea --refresh-dependencies --parallel -x ui:ui-$(rtc-location)-client:assemble && rtc-start-wait'
 
 alias rtc-test='gradle test -x ui:ui-$(rtc-location)-client:assemble'
