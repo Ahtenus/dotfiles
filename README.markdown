@@ -10,7 +10,7 @@ or
 
     wget -q0- https://raw.github.com/Ahtenus/dotfiles/master/install | bash
 
-This above command is eqvivalent to
+This above command is equivalent to
 
 	cd ~
 	git clone https://github.com/Ahtenus/dotfiles.git
