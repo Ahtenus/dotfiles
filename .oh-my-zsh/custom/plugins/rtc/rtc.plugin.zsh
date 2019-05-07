@@ -16,7 +16,7 @@ rtc-start-wait () {
 	fi
 }
 
-alias rtc-s=' ./stop.sh && rtc-list-processes'
+alias rtc-s=' ./stop.sh'
 alias rtc-s!=' ./stop.sh && ./killOrphanProcess.sh'
 
 rtc-location () {
@@ -31,21 +31,21 @@ rtc-list-processes () {
    jcmd -l | grep 'JPXR'
    true
 }
-alias rtc-a='gradle ass cDE bDE --parallel -x ui:ui-$(rtc-location)-client:assemble && rtc-start-wait' 
-alias rtc-ap='gradle ass cDE bDE --parallel -x ui:ui-$(rtc-location)-client:assemble && gradle applyJpxrDb && rtc-start-wait' 
-alias rtc-ra='gradle ass cDE bDE idea --refresh-dependencies --parallel -x ui:ui-$(rtc-location)-client:assemble && rtc-start-wait'
+alias rtc-a='./gradlew ass cDE bDE --parallel -x ui:ui-$(rtc-location)-client:assemble && rtc-start-wait' 
+alias rtc-ap='./gradlew ass cDE bDE --parallel -x ui:ui-$(rtc-location)-client:assemble && ./gradlew applyJpxrDb && rtc-start-wait' 
+alias rtc-ra='./gradlew ass cDE bDE idea --refresh-dependencies --parallel -x ui:ui-$(rtc-location)-client:assemble && rtc-start-wait'
 
-alias rtc-test='gradle test -x ui:ui-$(rtc-location)-client:assemble'
+alias rtc-test='./gradlew test -x ui:ui-$(rtc-location)-client:assemble'
 
-alias rtc-b='gradle build cDE bDE -x ui:ui-$(rtc-location)-client:assemble && ./start_and_create_db_au.sh'
-alias rtc-rb='gradle build cDE bDE --refresh-dependencies && rtc-start-wait'
+alias rtc-b='./gradlew build cDE bDE -x ui:ui-$(rtc-location)-client:assemble && ./start_and_create_db_au.sh'
+alias rtc-rb='./gradlew build cDE bDE --refresh-dependencies && rtc-start-wait'
 
-alias rtc-ci='gradle build -x ui:ui-$(rtc-location)-client:assemble'
+alias rtc-ci='./gradlew build -x ui:ui-$(rtc-location)-client:assemble'
 
 alias rtc-scb='rtc-s && rtc-cb' 
-alias rtc-cb='gradle clean build cDE bDE --refresh-dependencies && rtc-start-wait'
-alias rtc-ca='gradle clean ass cDE bDE --refresh-dependencies && rtc-start-wait'
-alias rtc-cbi='rtc-s && rtc-cb && gradle iT'
+alias rtc-cb='./gradlew clean build cDE bDE --refresh-dependencies && rtc-start-wait'
+alias rtc-ca='./gradlew clean ass cDE bDE --refresh-dependencies && rtc-start-wait'
+alias rtc-cbi='rtc-s && rtc-cb && ./gradlew iT'
 
 alias rtc-sa='rtc-s && rtc-a'
 alias rtc-sra='rtc-s && rtc-ra'
@@ -53,10 +53,10 @@ alias rtc-sap='rtc-s && rtc-ap'
 alias rtc-sb='rtc-s && rtc-b'
 alias rtc-srb='rtc-s && rtc-rb'
 
-alias rtc-ai='rtc-a && gradle iT'
-alias rtc-rai='rtc-ra && gradle iT'
-alias rtc-bi='rtc-b && gradle iT'
-alias rtc-rbi='rtc-rb && gradle iT'
+alias rtc-ai='rtc-a && ./gradlew iT'
+alias rtc-rai='rtc-ra && ./gradlew iT'
+alias rtc-bi='rtc-b && ./gradlew iT'
+alias rtc-rbi='rtc-rb && ./gradlew iT'
 
 alias rtc-sai='rtc-s && rtc-ai'
 alias rtc-srai='rtc-s && rtc-rai'
@@ -64,10 +64,16 @@ alias rtc-sbi='rtc-s && rtc-bi'
 alias rtc-srbi='rtc-s && rtc-rbi'
 
 rtc-stop () {
-	environments/developer/deployment/system/cmd/stop_server.sh $1
+	for var in "$@"
+	do
+		environments/developer/deployment/system/cmd/stop_server.sh $var
+	done
 }
 rtc-start () {
-	environments/developer/deployment/system/cmd/start_server.sh $1
+	for var in "$@"
+	do
+		environments/developer/deployment/system/cmd/start_server.sh $var
+	done
 }
 
 rtc-restart () {
@@ -78,7 +84,7 @@ rtc-restart () {
 alias rtc-cache-test='rm -R ~/test-results-cache/tests ; mv rtc-test/rtc-system-test/build/reports/tests/ ~/test-results-cache/ && cygstart ~/test-results-cache/tests/index.html'
 alias rtc-cleandb='rtc-s && ./cleandb.sh && ./start_and_create_db_au.sh'
 
-alias rtc-uicdeploy='npm run build:lib && cp -r lib $jprc/node_modules/rtc && cp -r src $jprc/node_modules/rtc'
+alias rtc-uicdeploy='npm run build:lib && cp -r lib $rtcc/node_modules/rtc && cp -r src $rtcc/node_modules/rtc'
 
 rtc-log () {
 if [ -z "$2" ]; then
@@ -147,7 +153,7 @@ _rtc-completion() {
     typeset -A opt_args
  
 	SERVERS=`find ./environments/developer/deployment/system/ -type d -name "log" -exec dirname {} \; | sed "s:.*/::" | tr "\n" " "`
-	_arguments '1:Server:('$SERVERS')'
+	_arguments ':Server:('$SERVERS')' ':Server:('$SERVERS')' ':Server:('$SERVERS')' ':Server:('$SERVERS')' ':Server:('$SERVERS')' ':Server:('$SERVERS')'
 }
 
 compdef _rtc-completion rtc-log

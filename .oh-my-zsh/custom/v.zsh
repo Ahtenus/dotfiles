@@ -13,6 +13,10 @@ alias zshconfig="code ~/.oh-my-zsh/custom/v.zsh && source ~/.zshrc"
 alias zshrc="code ~/.zshrc && source ~/.zshrc"
 alias i3config="code ~/.config/i3/config"
 
+zshplugin () {
+   code "/home/v/.oh-my-zsh/custom/plugins/$1/$1.plugin.zsh" 
+}
+
 
 json-pretty-print () {
 	for file in $2 ; do
@@ -22,3 +26,9 @@ json-pretty-print () {
 }
 
 alias telegram="python3 ~/telegram_api.py"
+
+alias explore="nautilus . 2>&1 > /dev/null & ; disown"
+
+alias gg="cowsay -d GG"
+
+alias jmc7="/home/v/jmc/target/products/org.openjdk.jmc/linux/gtk/x86_64/jmc"
